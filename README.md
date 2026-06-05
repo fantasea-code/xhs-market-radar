@@ -27,8 +27,8 @@ Xiaohongshu is not a clean static website. Useful evidence can be scattered acro
 
 That creates several research challenges:
 
-- A direct note link can be unreliable, even when the same note is still discoverable through search.
-- A caption may be only a hook. The actual review, price, setup steps, product comparison, or complaint may be inside the images.
+- A direct note link can be unreliable because Xiaohongshu may show login checks, app-open prompts, empty states, or stale security parameters. Many Agents try to jump straight into a copied URL, then conclude there is no content when the page fails to load.
+- A caption may be only a hook. The actual review, price, setup steps, product comparison, or complaint may be inside the images, and many AI research flows still summarize only the caption and visible text.
 - Comments often carry the real demand signal: people ask for links, complain about price, ask whether it works on Android, or request a tutorial.
 - Image carousels are easy to under-read. One cover image rarely represents the full note.
 - Video posts split information across captions, on-screen text, speech, comments, and frames. A single frame can miss the point.
@@ -38,10 +38,10 @@ That creates several research challenges:
 
 XHS Market Radar turns those conditions into a concrete research procedure:
 
-- Search first, then open high-value notes through normal navigation when direct links are unstable.
+- Use a human-like browsing workflow when direct links are unstable: search, enter from results, confirm the detail page, scroll, open the carousel, and read comments. This reduces failed direct-link reads on authenticated, dynamic pages.
 - Verify that a note detail page actually loaded before treating it as evidence.
 - Read captions, visible page text, interaction data, and comment threads.
-- Browse image carousels, extract the important images, read text inside those images, and embed useful image evidence in the final Markdown report.
+- Browse the full image carousel before summarizing a high-value image post. The Skill asks the Agent to inspect every image, extract text and important visual information, then embed only the most useful evidence images in the final Markdown report.
 - Separate video captions, comments, key frames, and optional local ASR so the report does not overclaim video evidence.
 - Keep a source card for each important reference: link, author, publish time, interaction data, note type, evidence level, image status, comment feedback, and what the source contributed to the decision.
 - Check outside signals when they are visible: official pricing, app store ratings, install counts, public downloads, ecommerce pages, GitHub repos, and product websites.
@@ -185,8 +185,8 @@ XHS Market Radar 是一个用于小红书 / RED 市场调研的 Agent Skill。�
 
 小红书的有效信息经常不在正文里：
 
-- 直接链接可能不稳定，但同一条笔记仍然能通过站内搜索找到。
-- 正文有时只是一个钩子，真正的评测、价格、设置步骤、产品对比和吐槽写在图片里。
+- 小红书直链经常不稳定，可能出现登录校验、打开 App 提示、空页面、过期参数等情况。很多 AI 会直接跳复制来的链接，页面没加载出来就误判为没有内容。
+- 正文有时只是一个钩子，真正的评测、价格、设置步骤、产品对比和吐槽写在图片里。很多 AI 调研只总结正文和页面可见文字，不会把图文帖图片当作主要信息源。
 - 评论区经常比正文更接近真实需求，比如求链接、嫌贵、问安卓能不能用、求教程。
 - 图文轮播很容易漏读。只看封面图，通常无法代表整篇笔记。
 - 视频帖的信息分散在正文、画面文字、口播、评论和不同画面里，单张截图很容易误判。
@@ -196,10 +196,10 @@ XHS Market Radar 是一个用于小红书 / RED 市场调研的 Agent Skill。�
 
 XHS Market Radar 把这些情况整理成一套可执行的调研流程：
 
-- 先搜索，再从搜索结果里进入高价值笔记；直接链接不稳定时，不把访问失败直接当作没有证据。
+- 直链不稳定时，使用仿人类浏览流程：搜索、从结果进入详情、确认页面加载、滚动、翻图、读评论。这样比 AI 直接跳链接更稳定，能降低动态页面抓不到内容的概率。
 - 确认笔记详情页真的加载成功，再把它计入证据。
 - 读取正文、页面可见文本、互动数据和评论区。
-- 浏览图文帖轮播，提取重要图片，读取图片里的文字和关键信息，并把有证据价值的图片嵌入最终 Markdown 报告。
+- 高价值图文帖必须先浏览完整图集，再总结内容。Skill 会要求 AI 查看每一张图片，提取图片里的文字和关键信息，再判断哪些图片最有证据价值，并嵌入最终 Markdown 报告。
 - 视频分开处理正文、评论、关键帧和可选本地 ASR，不用单张画面代表整条视频。
 - 每条重要参考都保留来源卡片：链接、作者、发布时间、互动数据、笔记形态、证据等级、图片状态、评论反馈，以及它对判断的贡献。
 - 外部信号只在可验证时使用，比如官网价格、应用商店评分、安装量、公开下载量、电商页、GitHub 仓库和产品官网。
