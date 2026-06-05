@@ -21,11 +21,11 @@ XHS Market Radar sits between those options:
 
 The goal is not bulk data collection. The goal is decision-quality evidence for a product team or solo builder.
 
-## Technical difficulty
+## Research reality
 
 Xiaohongshu is not a clean static website. Useful evidence can be scattered across search result pages, dynamic note detail pages, image carousels, long text screenshots, video overlays, comment threads, and external product pages.
 
-This creates several practical problems:
+That creates a research problem:
 
 - Direct note URLs may fail while the same note can still be found through in-site search.
 - Captions may be short because the real review is written inside images.
@@ -34,7 +34,20 @@ This creates several practical problems:
 - Video evidence needs separate handling. A single frame is not the same as full transcript evidence.
 - Pricing, installs, ratings, and downloads need source links or screenshots. Numbers without sources are treated as weak evidence.
 
-The Skill encodes a research workflow for these cases. It asks the Agent to keep weak sources weak, avoid invented numbers, and attach the evidence used for each conclusion.
+## How the Skill handles it
+
+XHS Market Radar turns those conditions into a concrete research procedure:
+
+- Search first, then open high-value notes through normal navigation when direct links are unstable.
+- Verify that a note detail page actually loaded before treating it as evidence.
+- Read captions, visible page text, interaction data, and comment threads.
+- Browse image carousels, extract the important images, read text inside those images, and embed useful image evidence in the final Markdown report.
+- Separate video captions, comments, key frames, and optional local ASR so the report does not overclaim video evidence.
+- Keep a source card for each important reference: link, author, publish time, interaction data, note type, evidence level, image status, comment feedback, and what the source contributed to the decision.
+- Check outside signals when they are visible: official pricing, app store ratings, install counts, public downloads, ecommerce pages, GitHub repos, and product websites.
+- Mark weak evidence as weak instead of turning every search result into a conclusion.
+
+The user gets a report that is easier to audit than a normal AI summary. They can see the competitor matrix, the number of Xiaohongshu references behind each product, the specific pain points found in comments and images, and the external signals used to support price or adoption claims.
 
 ## Business value
 
@@ -168,7 +181,7 @@ XHS Market Radar 是一个用于小红书 / RED 市场调研的 Agent Skill。�
 
 这个仓库同时包含 `chrome-attach`。它是可选的浏览器底座，用来让 Agent 连接用户本地真实 Chrome，而不是只依赖干净的无头环境。对于需要登录态、动态渲染、图文轮播、评论区、媒体资源的小红书调研，这个方式更接近真实人工浏览。
 
-### 技术难点
+### 调研环境
 
 小红书的有效信息经常不在正文里：
 
@@ -179,7 +192,20 @@ XHS Market Radar 是一个用于小红书 / RED 市场调研的 Agent Skill。�
 - 视频不能只靠一张截图判断，必要时需要关键帧或可选本地 ASR。
 - 销量、下载量、评分、价格必须有来源，不能凭空写数字。
 
-所以这个 Skill 不只是“搜一下总结一下”，而是把调研流程拆成：小红书证据、媒体证据、外部市场信号、报告输出规则。它要求每个重要结论都能回到具体来源。
+### 具体做法
+
+XHS Market Radar 把这些情况整理成一套可执行的调研流程：
+
+- 先搜索，再从搜索结果里进入高价值笔记；直接链接不稳定时，不把访问失败直接当作没有证据。
+- 确认笔记详情页真的加载成功，再把它计入证据。
+- 读取正文、页面可见文本、互动数据和评论区。
+- 浏览图文帖轮播，提取重要图片，读取图片里的文字和关键信息，并把有证据价值的图片嵌入最终 Markdown 报告。
+- 视频分开处理正文、评论、关键帧和可选本地 ASR，不用单张画面代表整条视频。
+- 每条重要参考都保留来源卡片：链接、作者、发布时间、互动数据、笔记形态、证据等级、图片状态、评论反馈，以及它对判断的贡献。
+- 外部信号只在可验证时使用，比如官网价格、应用商店评分、安装量、公开下载量、电商页、GitHub 仓库和产品官网。
+- 证据弱就标弱，不把搜索结果包装成确定结论。
+
+用户最后拿到的不是一段泛泛总结，而是一份可检查的市场报告：能看到竞品总表、小红书参考数、评论区痛点、图文帖图片里的长文信息、外部价格或下载信号，以及下一步应该测试什么。
 
 ### 商业价值
 
