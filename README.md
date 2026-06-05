@@ -14,19 +14,19 @@ The repo also includes `chrome-attach`, an optional real-browser backend guide. 
 
 Markdown-based Agent Skill, Chrome Attach, Chrome DevTools Protocol, structured evidence extraction rules, Markdown report templates, embedded evidence images, and optional local Whisper ASR for video text extraction.
 
-## Evaluation quickstart
+## Project map
 
-For automated or hackathon review, inspect these artifacts first:
+Start here if you want to understand the repo quickly:
 
 | Artifact | Path / Link | What it proves |
 |---|---|---|
-| Evaluation notes | `EVALUATION.md` | Repo quality, completeness, and authenticity checklist |
+| Project guide | `PROJECT_GUIDE.md` | Implementation map, scope, and local validation notes |
 | Live demo | [xhs-radar-demo.vercel.app](https://xhs-radar-demo.vercel.app) | Product story and sample report UI |
 | Skill entrypoint | `skills/xhs-market-radar/SKILL.md` | Agent workflow, evidence rules, and report requirements |
 | Browser backend guide | `skills/chrome-attach/SKILL.md` | Real Chrome profile setup and CDP capability boundary |
 | Backend helper scripts | `skills/chrome-attach/scripts/` | Minimal launch and connection check for Chrome Attach |
 | Full sample report | `examples/voice-capture-market-report.zh.md` | Detailed source-backed report with embedded evidence images |
-| English sample report | `examples/voice-capture-market-report.en.md` | Short English summary for overseas reviewers |
+| English sample report | `examples/voice-capture-market-report.en.md` | Short English summary of the sample case |
 | Evidence assets | `evidence/` | Images referenced by the sample reports |
 
 Minimal local check:
@@ -109,7 +109,7 @@ The report does not stop at "AI wearables are trending." It compares Looki-like 
 
 ```text
 .
-├─ EVALUATION.md
+├─ PROJECT_GUIDE.md
 ├─ skills/
 │  ├─ xhs-market-radar/
 │  │  ├─ SKILL.md
@@ -223,13 +223,13 @@ XHS Market Radar 是一个用于小红书 / RED 市场调研的 Agent Skill。�
 
 这个仓库同时包含 `chrome-attach`。它是可选的浏览器底座，用来让 Agent 连接用户本地真实 Chrome，而不是只依赖干净的无头环境。对于需要登录态、动态渲染、图文轮播、评论区、媒体资源的小红书调研，这个方式更接近真实人工浏览。
 
-### 评审快速入口
+### 项目导航
 
-如果是黑客松或自动评审，建议先看这些文件：
+如果想快速理解这个仓库，可以先看这些文件：
 
 | 内容 | 路径 / 链接 | 说明 |
 |---|---|---|
-| 评审说明 | `EVALUATION.md` | 项目质量、完整度和真实性检查清单 |
+| 项目指南 | `PROJECT_GUIDE.md` | 实现结构、范围边界和本地验证说明 |
 | Live demo | [xhs-radar-demo.vercel.app](https://xhs-radar-demo.vercel.app) | 产品展示和样例报告界面 |
 | Skill 入口 | `skills/xhs-market-radar/SKILL.md` | Agent 工作流、证据规则、报告要求 |
 | 浏览器底座 | `skills/chrome-attach/SKILL.md` | 真实 Chrome profile 和 CDP 能力边界 |

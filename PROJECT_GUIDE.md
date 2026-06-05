@@ -1,6 +1,6 @@
-# Evaluation Notes
+# Project Guide
 
-This repo is designed to be evaluated as an Agent Skill project, not as a SaaS backend.
+This repo is an Agent Skill project, not a SaaS backend. It packages the market-research workflow, browser setup guidance, report templates, sample reports, and evidence assets in one place.
 
 ## What is implemented
 
@@ -17,7 +17,7 @@ This repo is designed to be evaluated as an Agent Skill project, not as a SaaS b
 - Evidence assets used by the sample reports under `evidence/`.
 - A live demo page: https://xhs-radar-demo.vercel.app
 
-## What to inspect
+## Where to look first
 
 1. `README.md` for product framing, quickstart, tech stack, and repo structure.
 2. `skills/xhs-market-radar/SKILL.md` for the Agent workflow and evidence rules.
