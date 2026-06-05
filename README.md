@@ -1,5 +1,9 @@
 # XHS Market Radar
 
+[English](#xhs-market-radar) | [中文说明](#chinese--中文说明)
+
+Live demo: [https://xhs-radar-demo.vercel.app](https://xhs-radar-demo.vercel.app)
+
 XHS Market Radar is an Agent Skill for turning messy Xiaohongshu / RED research into a source-backed market validation report.
 
 It is built for people who have an early product idea and need to know whether the demand is real: what users are already trying, what they complain about, where competitors sell, and which first version is worth testing.
