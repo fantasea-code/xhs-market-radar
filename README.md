@@ -21,18 +21,18 @@ XHS Market Radar sits between those options:
 
 The goal is not bulk data collection. The goal is decision-quality evidence for a product team or solo builder.
 
-## Research reality
+## Research challenges
 
 Xiaohongshu is not a clean static website. Useful evidence can be scattered across search result pages, dynamic note detail pages, image carousels, long text screenshots, video overlays, comment threads, and external product pages.
 
-That creates a research problem:
+That creates several research challenges:
 
-- Direct note URLs may fail while the same note can still be found through in-site search.
-- Captions may be short because the real review is written inside images.
-- Comments often contain stronger market signals than the post itself: "where can I buy it", "too expensive", "does it work on Android", "send me the tutorial".
-- Image resources may load only after scrolling or swiping.
-- Video evidence needs separate handling. A single frame is not the same as full transcript evidence.
-- Pricing, installs, ratings, and downloads need source links or screenshots. Numbers without sources are treated as weak evidence.
+- A direct note link can be unreliable, even when the same note is still discoverable through search.
+- A caption may be only a hook. The actual review, price, setup steps, product comparison, or complaint may be inside the images.
+- Comments often carry the real demand signal: people ask for links, complain about price, ask whether it works on Android, or request a tutorial.
+- Image carousels are easy to under-read. One cover image rarely represents the full note.
+- Video posts split information across captions, on-screen text, speech, comments, and frames. A single frame can miss the point.
+- External numbers such as price, installs, ratings, downloads, and sales are easy to quote loosely unless the report keeps the source attached.
 
 ## How the Skill handles it
 
@@ -181,16 +181,16 @@ XHS Market Radar 是一个用于小红书 / RED 市场调研的 Agent Skill。�
 
 这个仓库同时包含 `chrome-attach`。它是可选的浏览器底座，用来让 Agent 连接用户本地真实 Chrome，而不是只依赖干净的无头环境。对于需要登录态、动态渲染、图文轮播、评论区、媒体资源的小红书调研，这个方式更接近真实人工浏览。
 
-### 调研环境
+### 调研难点
 
 小红书的有效信息经常不在正文里：
 
-- 很多长评测、价格、参数、吐槽写在图片里。
-- 评论区比正文更能反映真实需求，比如求链接、嫌贵、问兼容性、求教程。
-- 直接链接可能失效，但站内搜索仍能找到对应笔记。
-- 图片需要滚动或翻页后才完整加载。
-- 视频不能只靠一张截图判断，必要时需要关键帧或可选本地 ASR。
-- 销量、下载量、评分、价格必须有来源，不能凭空写数字。
+- 直接链接可能不稳定，但同一条笔记仍然能通过站内搜索找到。
+- 正文有时只是一个钩子，真正的评测、价格、设置步骤、产品对比和吐槽写在图片里。
+- 评论区经常比正文更接近真实需求，比如求链接、嫌贵、问安卓能不能用、求教程。
+- 图文轮播很容易漏读。只看封面图，通常无法代表整篇笔记。
+- 视频帖的信息分散在正文、画面文字、口播、评论和不同画面里，单张截图很容易误判。
+- 价格、销量、下载量、评分这些数字很容易被随手引用，如果没有来源，就不能当成强证据。
 
 ### 具体做法
 
