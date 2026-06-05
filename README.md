@@ -28,9 +28,8 @@ Xiaohongshu is not a clean static website. Useful evidence can be scattered acro
 That creates several research challenges:
 
 - A direct note link can be unreliable because Xiaohongshu may show login checks, app-open prompts, empty states, or stale security parameters. Many Agents try to jump straight into a copied URL, then conclude there is no content when the page fails to load.
-- A caption may be only a hook. The actual review, price, setup steps, product comparison, or complaint may be inside the images, and many AI research flows still summarize only the caption and visible text.
+- A caption may be only a hook. The actual review, price, setup steps, product comparison, or complaint may be inside the image carousel. Many AI research flows still summarize only the caption, visible text, or cover image, so they miss the main content of the note.
 - Comments often carry the real demand signal: people ask for links, complain about price, ask whether it works on Android, or request a tutorial.
-- Image carousels are easy to under-read. One cover image rarely represents the full note.
 - Video posts split information across captions, on-screen text, speech, comments, and frames. A single frame can miss the point.
 - External numbers such as price, installs, ratings, downloads, and sales are easy to quote loosely unless the report keeps the source attached.
 
@@ -186,9 +185,8 @@ XHS Market Radar 是一个用于小红书 / RED 市场调研的 Agent Skill。�
 小红书的有效信息经常不在正文里：
 
 - 小红书直链经常不稳定，可能出现登录校验、打开 App 提示、空页面、过期参数等情况。很多 AI 会直接跳复制来的链接，页面没加载出来就误判为没有内容。
-- 正文有时只是一个钩子，真正的评测、价格、设置步骤、产品对比和吐槽写在图片里。很多 AI 调研只总结正文和页面可见文字，不会把图文帖图片当作主要信息源。
+- 正文有时只是一个钩子，真正的评测、价格、设置步骤、产品对比和吐槽写在图文轮播里。很多 AI 调研只总结正文、页面可见文字或封面图，不会把整组图片当作主要信息源，因此很容易漏掉笔记的核心内容。
 - 评论区经常比正文更接近真实需求，比如求链接、嫌贵、问安卓能不能用、求教程。
-- 图文轮播很容易漏读。只看封面图，通常无法代表整篇笔记。
 - 视频帖的信息分散在正文、画面文字、口播、评论和不同画面里，单张截图很容易误判。
 - 价格、销量、下载量、评分这些数字很容易被随手引用，如果没有来源，就不能当成强证据。
 
