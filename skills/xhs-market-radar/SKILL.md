@@ -101,6 +101,6 @@ description: 用小红书/RED 做市场调研、竞品研究和产品需求验�
 
 ## 与其他 Skill 的关系
 
-- `chrome-attach`：推荐随本 skill 同仓库打包的可选浏览器底座，负责真实 Chrome 登录态、DOM、Network、截图、图片/媒体 URL。若已安装则优先使用；未安装时可选择 browser-use、agent-browser、Playwright/CDP 等后端。
-- `xhs-competitor-research`：更偏竞品档案和资料沉淀；本 skill 更偏市场需求验证、竞品研究和产品定位判断。
-- browser-use、agent-browser、Playwright/CDP：可作为替代浏览器后端，但必须遵守本 skill 的证据和报告规则。
+- `chrome-attach`：推荐随本 skill 同仓库打包的可选浏览器底座，负责真实 Chrome 登录态、DOM、Network、截图、图片/媒体 URL。若已安装则优先使用；未安装时可选择 browser-use、agent-browser 或其他 CDP/浏览器后端。
+- `xhs-market-radar`：本 skill 本身，负责市场需求验证、竞品研究和产品定位判断。
+- browser-use、agent-browser、其他 CDP/浏览器后端：可作为替代浏览器后端，但必须遵守本 skill 的证据和报告规则。

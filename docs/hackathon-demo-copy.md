@@ -81,29 +81,7 @@ Terminal line:
 
 `SOURCE_COUNT + EVIDENCE_LEVEL + USER_COMMENT = DECISION INPUT`
 
-## Slide 4: Demo Case
-
-Headline:
-
-Try the live case.
-
-Body:
-
-The demo starts with one idea:
-
-"An affordable, no-camera AI voice device for quick notes, daily memory, and personal context."
-
-Click the scan button. The interface will simulate the research flow, then jump into the sample report.
-
-The report lands on a narrower answer: low-friction voice capture is worth testing, but the first pitch should avoid raw 24-hour audio.
-
-Terminal lines:
-
-`RUN DEMO SCAN`
-
-`CASE: LOW-COST AI VOICE CAPTURE`
-
-## Slide 5: Built For Messy, Authenticated Social Pages
+## Slide 4: Built For Messy, Authenticated Social Pages
 
 Headline:
 
@@ -111,30 +89,19 @@ Built for messy, authenticated social pages.
 
 Body:
 
-Xiaohongshu behaves more like an app than a clean website. Useful evidence can sit in search results, dynamic note pages, image carousels, long text screenshots, comment threads, video frames, product pages, and app stores.
+Xiaohongshu is an app-first platform. The web page is only a partial entry point, while market evidence can be scattered across search results, dynamic note pages, image carousels, long text screenshots, comment threads, video content, product pages, and app stores.
 
-Direct links can fail. Some notes open more reliably through search. Images may load only after scrolling or swiping. Comments often need page interaction.
+That makes research easy to under-read. Direct links can fail, images may only load after swiping, and comments often need interaction. A normal AI summary can miss the part users actually care about.
 
-The recommended backend is Chrome Attach from the same repo. It lets the Agent work inside a real Chrome profile with the user's login state and rendered page context.
+XHS Market Radar is designed to collect those scattered signals: captions, images, image text, comments, video evidence, source counts, and outside checks. Video text extraction can be added when the user installs an extra local Whisper model.
 
-Users can also bring Browser Use, Web Access, or another CDP-based browser backend.
-
-The Skill gives the Agent a research procedure:
-
-- Search first when a direct link is stale.
-- Open notes through normal navigation.
-- Confirm that the detail page actually loaded.
-- Extract images from image posts and analyze them as evidence.
-- Read text or important information inside those images.
-- Decide which images matter enough to include in the final report.
-- Read comments as market signals.
-- Keep weak sources weak.
+Chrome Attach is the recommended backend. It gives the Agent a real Chrome profile and rendered page context; users can also bring another CDP-based browser backend.
 
 Terminal line:
 
 `REAL_BROWSER_CONTEXT -> NORMAL_BROWSING_PATH -> TRACEABLE_EVIDENCE`
 
-## Slide 6: The Evidence Pipeline
+## Slide 5: The Evidence Pipeline
 
 Headline:
 
@@ -164,7 +131,7 @@ Terminal line:
 
 `NOTE -> IMAGE_TEXT -> COMMENT -> EXTERNAL_CHECK -> REPORT`
 
-## Slide 7: Evidence Levels
+## Slide 6: Evidence Levels
 
 Headline:
 
@@ -186,7 +153,7 @@ Terminal line:
 
 `A = OPENED + READ + EVIDENCE ATTACHED`
 
-## Slide 8: Market Signals Beyond Xiaohongshu
+## Slide 7: Market Signals Beyond Xiaohongshu
 
 Headline:
 
@@ -205,15 +172,13 @@ When external data is visible and verifiable, the Skill can use it as supporting
 - Media reports
 - Ecommerce pages
 
-The rule is simple: if the report uses a number, it needs a source.
-
-A comment tells you what users feel. A pricing page tells you what the market charges. An app store rating tells you whether people keep using the product after the first download.
+Every meaningful claim in the report should trace back to evidence. A comment can show what users feel. A pricing page can show what the market charges. An app store rating can show whether people keep using the product after the first download.
 
 Terminal line:
 
-`NO SOURCE -> NO NUMBER`
+`CLAIM -> SOURCE -> DECISION`
 
-## Slide 9: Product Decision Output
+## Slide 8: Product Decision Output
 
 Headline:
 
@@ -221,21 +186,17 @@ The output should change what you build next.
 
 Body:
 
-The report is designed to answer product questions:
+The report is designed to answer product questions: is demand real, who feels it most, what people use today, where current products fail, what price feels acceptable, and what to test next.
 
-- Is the demand real?
-- Which user group feels it most?
-- What are people using today?
-- Where do current products fail?
-- What price feels acceptable?
-- What should the first version avoid?
-- What should we test next?
+The live demo starts with one idea:
 
-For the voice capture case, the evidence points to a narrow first test: low-friction capture, no camera, physical button, low subscription pressure, and summaries that land in tools users already use.
+"An affordable, no-camera AI voice device for quick notes, daily memory, and personal context."
+
+The sample report lands on a narrower first test: low-friction voice capture, no camera, physical button, low subscription pressure, and summaries that land in tools users already use. It also warns against making raw 24-hour audio the first pitch.
 
 Terminal line:
 
-`MARKET_RESEARCH -> PRODUCT_DECISION`
+`DEMO_CASE -> MARKET_RESEARCH -> PRODUCT_DECISION`
 
 ## Chinese Reference Translation
 
@@ -281,46 +242,19 @@ XHS Market Radar 会在小红书上搜索直接竞品、相邻产品、DIY 替�
 
 ### Slide 4
 
-试一下这个现场案例。
-
-Demo 从一个想法开始：
-
-“一个低价、无摄像头的 AI 语音设备，用来快速记事、记录生活和保留个人上下文。”
-
-点击扫描按钮。界面会模拟调研流程，然后跳转到样例报告。
-
-报告最后给出的判断更窄：低摩擦语音捕捉值得测试，但第一版不应该主打原始 24 小时录音。
-
-`运行 Demo 扫描`
-
-`案例：低价 AI 语音捕捉`
-
-### Slide 5
-
 为混乱、需要登录的社媒页面设计。
 
-小红书更像一个 App，不像干净的网站。有效证据可能散在搜索结果、动态笔记页、图片轮播、长文截图、评论区、视频画面、产品页和应用商店里。
+小红书本身就是 App-first 平台，网页只是补充入口。市场证据可能散在搜索结果、动态笔记页、图片轮播、长文截图、评论区、视频内容、产品页和应用商店里。
 
-直接链接可能失效。有些笔记通过搜索打开更稳定。图片可能要滚动或切换后才加载。评论通常也需要页面交互。
+这会让调研很容易漏读。直链可能失效，图片可能要翻图后才加载，评论通常也需要交互。普通 AI 摘要很可能错过用户真正关心的部分。
 
-推荐后端是同仓库里的 Chrome Attach。它让 Agent 在用户真实 Chrome profile 里工作，复用用户登录态和已经渲染出来的页面上下文。
+XHS Market Radar 的目标是把这些分散信号收集起来：正文、图片、图片文字、评论、视频证据、小红书参考数和外部补证。视频文字提取可以作为增强能力启用，但需要额外安装本地 Whisper 模型。
 
-用户也可以选择 Browser Use、Web Access，或者其他基于 CDP 的浏览器后端。
-
-这个 Skill 会给 Agent 一套调研流程：
-
-- 直接链接失效时先走搜索。
-- 通过正常页面导航打开笔记。
-- 确认详情页真的加载成功。
-- 提取图文帖图片，并把图片也作为证据分析。
-- 读取图片中的文字或重要信息。
-- 判断哪些图片值得放进最终报告。
-- 把评论当作市场信号读取。
-- 证据弱的地方就标弱。
+推荐后端是同仓库里的 Chrome Attach。它让 Agent 使用真实 Chrome profile 和已渲染页面上下文；用户也可以选择其他基于 CDP 的浏览器后端。
 
 `真实浏览器上下文 -> 正常浏览路径 -> 可追溯证据`
 
-### Slide 6
+### Slide 5
 
 三层证据流程。
 
@@ -344,7 +278,7 @@ Skill 会提取这些图片，读取里面的文字或重要信息，判断每�
 
 `笔记 -> 图片文字 -> 评论 -> 外部检查 -> 报告`
 
-### Slide 7
+### Slide 6
 
 报告不会把所有来源当成同等证据。
 
@@ -360,7 +294,7 @@ Skill 使用简单的证据等级。
 
 `A = 已打开 + 已读取 + 已附证据`
 
-### Slide 8
+### Slide 7
 
 小红书是起点。报告也可以检查外部信号。
 
@@ -375,26 +309,20 @@ Skill 使用简单的证据等级。
 - 媒体报道
 - 电商页面
 
-规则很简单：报告里只要用了数字，就需要来源。
+报告里的关键判断都应该能回到来源。评论能说明用户怎么想，价格页能说明市场怎么收费，应用商店评分能说明用户下载后是否还在用。
 
-评论告诉你用户怎么想。价格页告诉你市场怎么收费。应用商店评分告诉你用户下载后是否还在用。
+`判断 -> 来源 -> 决策`
 
-`没有来源 -> 不写数字`
-
-### Slide 9
+### Slide 8
 
 输出结果应该改变你下一步做什么。
 
-报告是为了回答产品问题：
+报告是为了回答产品问题：需求是否真实，谁最痛，用户现在用什么，现有产品哪里失败，什么价格能接受，下一步应该测试什么。
 
-- 需求是真的吗？
-- 哪类用户感受最强？
-- 用户现在在用什么？
-- 现有产品失败在哪里？
-- 什么价格更容易接受？
-- 第一版应该避开什么？
-- 下一步应该测试什么？
+Demo 从一个想法开始：
 
-在语音捕捉这个案例里，证据指向一个更窄的首测方向：低摩擦捕捉、无摄像头、实体按键、降低订阅压力，并且把总结送到用户已经在用的工具里。
+“一个低价、无摄像头的 AI 语音设备，用来快速记事、记录生活和保留个人上下文。”
 
-`市场调研 -> 产品决策`
+样例报告最后给出的判断更窄：低摩擦语音捕捉值得测试，但第一版不应该主打原始 24 小时录音。更适合先做无摄像头、实体按键、低订阅压力，并把总结送到用户已经在用的工具里。
+
+`Demo 案例 -> 市场调研 -> 产品决策`

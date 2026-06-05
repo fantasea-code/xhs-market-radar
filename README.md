@@ -10,6 +10,39 @@ It is built for people who have an early product idea and need to know whether t
 
 The repo also includes `chrome-attach`, an optional real-browser backend guide. It helps an Agent work inside a local Chrome profile with the user's login state, rendered DOM, network records, screenshots, and media resources.
 
+## Tech stack
+
+Markdown-based Agent Skill, Chrome Attach, Chrome DevTools Protocol, structured evidence extraction rules, Markdown report templates, embedded evidence images, and optional local Whisper ASR for video text extraction.
+
+## Evaluation quickstart
+
+For automated or hackathon review, inspect these artifacts first:
+
+| Artifact | Path / Link | What it proves |
+|---|---|---|
+| Evaluation notes | `EVALUATION.md` | Repo quality, completeness, and authenticity checklist |
+| Live demo | [xhs-radar-demo.vercel.app](https://xhs-radar-demo.vercel.app) | Product story and sample report UI |
+| Skill entrypoint | `skills/xhs-market-radar/SKILL.md` | Agent workflow, evidence rules, and report requirements |
+| Browser backend guide | `skills/chrome-attach/SKILL.md` | Real Chrome profile setup and CDP capability boundary |
+| Backend helper scripts | `skills/chrome-attach/scripts/` | Minimal launch and connection check for Chrome Attach |
+| Full sample report | `examples/voice-capture-market-report.zh.md` | Detailed source-backed report with embedded evidence images |
+| English sample report | `examples/voice-capture-market-report.en.md` | Short English summary for overseas reviewers |
+| Evidence assets | `evidence/` | Images referenced by the sample reports |
+
+Minimal local check:
+
+```powershell
+.\skills\chrome-attach\scripts\launch-chrome.ps1
+node .\skills\chrome-attach\scripts\doctor.mjs
+```
+
+Then copy `skills/xhs-market-radar` into an Agent skill directory and ask:
+
+```text
+Use xhs-market-radar to validate this idea with Xiaohongshu evidence:
+<your product idea>
+```
+
 ## Why this exists
 
 Early product research on social platforms is slow and easy to fake.
@@ -76,6 +109,7 @@ The report does not stop at "AI wearables are trending." It compares Looki-like 
 
 ```text
 .
+├─ EVALUATION.md
 ├─ skills/
 │  ├─ xhs-market-radar/
 │  │  ├─ SKILL.md
@@ -87,10 +121,15 @@ The report does not stop at "AI wearables are trending." It compares Looki-like 
 │  │     ├─ video-evidence.md
 │  │     └─ xhs-extraction.md
 │  └─ chrome-attach/
-│     └─ SKILL.md
+│     ├─ SKILL.md
+│     └─ scripts/
+│        ├─ doctor.mjs
+│        └─ launch-chrome.ps1
 ├─ examples/
 │  ├─ voice-capture-market-report.en.md
 │  └─ voice-capture-market-report.zh.md
+├─ evidence/
+│  └─ sample evidence images used by the reports
 └─ docs/
    └─ hackathon-demo-copy.md
 ```
@@ -125,16 +164,16 @@ Chrome Attach is recommended when the research target needs a real local Chrome 
 On Windows, start a dedicated Chrome profile:
 
 ```powershell
-& "C:\Program Files\Google\Chrome\Application\chrome.exe" `
-  --remote-debugging-port=9222 `
-  --user-data-dir="C:\chrome-ai-profile"
+.\skills\chrome-attach\scripts\launch-chrome.ps1
 ```
 
-Then configure your Agent's MCP/browser backend to connect to:
+Check the local Chrome endpoint:
 
-```text
-http://127.0.0.1:9222
+```powershell
+node .\skills\chrome-attach\scripts\doctor.mjs
 ```
+
+Then configure your Agent's MCP/browser backend to connect to `http://127.0.0.1:9222`.
 
 Use a dedicated profile instead of your daily browser profile when possible. It reduces accidental exposure of unrelated cookies, tabs, and personal browsing data.
 
@@ -183,6 +222,21 @@ XHS Market Radar 是一个用于小红书 / RED 市场调研的 Agent Skill。�
 你给它一个产品 idea，它会围绕这个 idea 搜索小红书上的竞品、相邻产品、土办法、教程、吐槽、评论区购买信号，并补充官网、应用商店、电商、GitHub、公开下载量等外部线索。最后输出一份带证据链的 Markdown 市场验证报告。
 
 这个仓库同时包含 `chrome-attach`。它是可选的浏览器底座，用来让 Agent 连接用户本地真实 Chrome，而不是只依赖干净的无头环境。对于需要登录态、动态渲染、图文轮播、评论区、媒体资源的小红书调研，这个方式更接近真实人工浏览。
+
+### 评审快速入口
+
+如果是黑客松或自动评审，建议先看这些文件：
+
+| 内容 | 路径 / 链接 | 说明 |
+|---|---|---|
+| 评审说明 | `EVALUATION.md` | 项目质量、完整度和真实性检查清单 |
+| Live demo | [xhs-radar-demo.vercel.app](https://xhs-radar-demo.vercel.app) | 产品展示和样例报告界面 |
+| Skill 入口 | `skills/xhs-market-radar/SKILL.md` | Agent 工作流、证据规则、报告要求 |
+| 浏览器底座 | `skills/chrome-attach/SKILL.md` | 真实 Chrome profile 和 CDP 能力边界 |
+| 辅助脚本 | `skills/chrome-attach/scripts/` | 启动 Chrome、检查连接 |
+| 完整样例报告 | `examples/voice-capture-market-report.zh.md` | 带图片证据和来源卡片的详细报告 |
+| 英文样例报告 | `examples/voice-capture-market-report.en.md` | 给海外评委快速浏览的英文摘要 |
+| 证据图片 | `evidence/` | 样例报告引用的图片证据 |
 
 ### 调研难点
 

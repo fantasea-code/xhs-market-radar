@@ -23,7 +23,7 @@ last_verified: 2026-06-04
 - 通过用户已配置的 MCP 或 CDP 后端连接 `http://127.0.0.1:9222`。
 - 需要能力覆盖 tabs/open/snapshot/eval/images/screenshot/network/cookies/storage/click/fill。
 - 证据抽取和报告格式仍以本 skill 的 `xhs-extraction.md` 和 `report-template.md` 为准。
-- 如果未来仓库加入 CDP CLI、doctor 或 launch scripts，它们只作为降低上手成本的辅助工具，不改变本 skill 的证据规则。
+- 本仓库提供最小 `doctor` 和 `launch` 脚本用于降低上手成本；它们只检查和启动真实 Chrome，不改变本 skill 的证据规则。
 
 ## 打包建议
 
@@ -39,7 +39,7 @@ Agent 选择规则：
 
 - 如果本地已安装 `chrome-attach`，优先用它连接真实 Chrome。
 - 如果有 Chrome DevTools MCP，用 MCP 工具。
-- 如果没有 `chrome-attach`，但有 browser-use、agent-browser 或 Playwright/CDP，则使用等价真实浏览器后端。
+- 如果没有 `chrome-attach`，但有 browser-use、agent-browser 或其他 CDP/浏览器后端，则使用等价真实浏览器后端。
 - 如果没有真实浏览器后端，只做候选清单、搜索预筛或外部补证。
 - 不要因为浏览器后端不可用就编造小红书证据。
 
@@ -47,9 +47,9 @@ Agent 选择规则：
 
 对普通用户只暴露三步：
 
-1. 打开专用 Chrome profile。
+1. 打开专用 Chrome profile；Windows 可运行 `skills/chrome-attach/scripts/launch-chrome.ps1`。
 2. 登录小红书。
-3. 让 Agent 确认浏览器后端已连接，再执行市场验证报告。
+3. 运行 `node skills/chrome-attach/scripts/doctor.mjs` 或让 Agent 确认浏览器后端已连接，再执行市场验证报告。
 
 默认推荐安全模式：独立 profile，不直接使用日常 Chrome：
 

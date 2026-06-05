@@ -14,7 +14,7 @@ metadata:
 本 skill 是浏览器底座，不负责业务判断。
 
 - 负责：启动/连接真实 Chrome、登录态复用、DOM 读取、Network 观察、页面操作、图片/媒体 URL 枚举、截图。
-- 不负责：小红书竞品判断、证据等级、图集完整性、评论痛点、竞品文档写作。这些交给 `xhs-competitor-research`。
+- 不负责：小红书竞品判断、证据等级、图集完整性、评论痛点、市场验证报告写作。这些交给 `xhs-market-radar`。
 
 ## 推荐模式：独立 Chrome Profile
 
@@ -26,6 +26,12 @@ Windows 推荐命令：
 & "C:\Program Files\Google\Chrome\Application\chrome.exe" `
   --remote-debugging-port=9222 `
   --user-data-dir="C:\chrome-ai-profile"
+```
+
+本仓库也提供一个最小启动脚本：
+
+```powershell
+.\skills\chrome-attach\scripts\launch-chrome.ps1
 ```
 
 也可以换端口：
@@ -122,6 +128,12 @@ Chrome 启动后，验证端口：
 Invoke-RestMethod http://127.0.0.1:9222/json/version
 ```
 
+也可以运行：
+
+```powershell
+node .\skills\chrome-attach\scripts\doctor.mjs
+```
+
 成功时会返回浏览器版本、WebSocket 地址等信息。
 
 如果失败：
@@ -167,7 +179,7 @@ Invoke-RestMethod http://127.0.0.1:9222/json/version
 
 ## 小红书专项
 
-小红书竞品调研优先调用 `xhs-competitor-research`。本 skill 只提供底层能力。
+小红书市场调研优先调用 `xhs-market-radar`。本 skill 只提供底层能力。
 
 小红书常见技术点：
 

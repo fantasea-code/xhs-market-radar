@@ -33,10 +33,12 @@ Updated: 2026-06-04
 
 ## 3. Core Evidence Images
 
-> Placeholder for image evidence.
-
 ![Evidence 1: Looki - Return and Distrust](/evidence/evidence-01-looki-return.png)
 ![Evidence 2: Apple Watch - ADHD Capture](/evidence/evidence-02-adhd-watch.png)
+![Evidence 3: Plaud - Hardware Fatigue](/evidence/evidence-03-plaud-ewaste.png)
+![Evidence 4: Omi - External Product Signal](/evidence/evidence-08-omi-official.png)
+
+These images are a compact English sample. The full Chinese report includes more embedded source images, source cards, XHS URLs, and evidence-status notes.
 
 ## 4. Pain Points Matrix
 
