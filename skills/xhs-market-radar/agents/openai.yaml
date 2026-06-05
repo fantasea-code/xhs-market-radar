@@ -1,0 +1,3 @@
+display_name: XHS Market Radar
+short_description: Validate ideas with XHS evidence.
+default_prompt: 帮我用小红书验证这个产品想法：<输入你的 idea / 目标用户 / 竞品线索>，输出带证据链的市场验证报告。
