@@ -10,9 +10,11 @@ It is built for people who have an early product idea and need to know whether t
 
 The repo also includes `chrome-attach`, an optional real-browser backend guide. It helps an Agent work inside a local Chrome profile with the user's login state, rendered DOM, network records, screenshots, and media resources.
 
+For execution, the Skill supports and recommends the MiroMind API. MiroMind can act as the Agent execution layer for running the research workflow, calling the browser backend, following the evidence rules, and producing the final Markdown report.
+
 ## Tech stack
 
-Markdown-based Agent Skill, Chrome Attach, Chrome DevTools Protocol, structured evidence extraction rules, Markdown report templates, embedded evidence images, and optional local Whisper ASR for video text extraction.
+Markdown-based Agent Skill, MiroMind API, Chrome Attach, Chrome DevTools Protocol, structured evidence extraction rules, Markdown report templates, embedded evidence images, and optional local Whisper ASR for video text extraction.
 
 ## Project map
 
@@ -135,6 +137,12 @@ The report does not stop at "AI wearables are trending." It compares Looki-like 
 ```
 
 ## How to use
+
+### Recommended: Run with MiroMind API
+
+Use MiroMind API as the Agent execution layer, then provide this repo's `skills/xhs-market-radar` directory as the Skill instructions.
+
+The Agent should use the Skill to plan searches, open Xiaohongshu / RED evidence, inspect text, images, comments, video evidence, external market signals, and return the Markdown report defined by the templates in this repo.
 
 ### Option A: Use the Skill only
 
